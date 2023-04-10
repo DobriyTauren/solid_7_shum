@@ -1,4 +1,5 @@
 ﻿using SolidWorks.Interop.sldworks;
+using SolidWorks.Interop.swconst;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,37 +24,18 @@ namespace solid_7_shum
         {
             // Получаем активный документ SolidWorks
             SldWorks swApp = (SldWorks)Marshal.GetActiveObject("SldWorks.Application");
+
             ModelDoc2 swModel = swApp.ActiveDoc;
+            PartDoc swPart = (PartDoc)swModel;
 
-            // Получаем массив всех сущностей детали
-            FeatureManager swFeatMgr = swModel.FeatureManager;
-            object[] swFeatures = (object[])swFeatMgr.GetFeatures(true);
+            // имя грани, которую нужно выбрать
+            string faceName = "хуй";
 
-            // Создаем пустой список граней
-            List<Face2> facesList = new List<Face2>();
+            // выбираем грань по имени
+            bool status = swModel.Extension.SelectByID2(faceName, "FACE", 0, 0, 0, false, 0, null, 0);
 
-            // Обходим все сущности и добавляем их грани в список
-            foreach (object feature in swFeatures)
-            {
-                if (feature is Body2)
-                {
-                    Body2 swBody = (Body2)feature;
-                    object[] swFaces = (object[])swBody.GetFaces();
 
-                    foreach (object face in swFaces)
-                    {
-                        if (face is Face2)
-                        {
-                            facesList.Add((Face2)face);
-                        }
-                    }
-                }
-            }
-
-            // Преобразуем список граней в массив
-            Face2[] facesArray = facesList.ToArray();
-
-            MessageBox.Show($"{facesArray.Length}");
+           
         }
     }
 }
