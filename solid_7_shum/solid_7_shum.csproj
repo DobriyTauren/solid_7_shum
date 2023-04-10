@@ -33,6 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SolidWorks.Interop.sldworks">
+      <HintPath>..\..\solid_lb4_13\solid_lb4_13\bin\Debug\SolidWorks.Interop.sldworks.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swconst">
+      <HintPath>..\..\solid_lb4_13\solid_lb4_13\bin\Debug\SolidWorks.Interop.swconst.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
