@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 377);
+            this.ClientSize = new System.Drawing.Size(618, 388);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.Text = "Лб7_Шуманский";
